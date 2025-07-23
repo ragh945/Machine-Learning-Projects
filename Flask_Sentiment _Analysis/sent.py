@@ -4,11 +4,11 @@ import pickle
 app = Flask(__name__)
 
 # ✅ Load the TF-IDF vectorizer first
-with open(r"D:\tfidf1_tweets.pkl", "rb") as vec_file:
+with open("tfidf1_tweets.pkl", "rb") as vec_file:
     vectorizer = pickle.load(vec_file)
 
 # ✅ Load the Naive Bayes classifier
-with open(r"D:\NaiveBayes_Tweets.pkl", "rb") as model_file:
+with open("NaiveBayes_Tweets.pkl", "rb") as model_file:
     model = pickle.load(model_file)
 
 @app.route("/", methods=["GET", "POST"])
