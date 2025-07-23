@@ -1,9 +1,9 @@
-from flask import Flask, render_template, request
 import pickle
+from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
-# ✅ Load the TF-IDF vectorizer first
+# ✅ Load the TF-IDF vectorizer
 with open("tfidf1_tweets.pkl", "rb") as vec_file:
     vectorizer = pickle.load(vec_file)
 
@@ -18,7 +18,6 @@ def index():
     if request.method == "POST":
         tweet = request.form["tweet"]
         if tweet.strip():
-            # Transform using vectorizer, then predict using model
             X = vectorizer.transform([tweet])
             pred = model.predict(X)[0]
             prediction = f"Predicted Sentiment: {pred}"
