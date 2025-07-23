@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Twitter Sentiment Analyzer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f7f7f7;
+            text-align: center;
+            padding-top: 80px;
+        }
+        input[type="text"] {
+            width: 400px;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 8px;
+        }
+        input[type="submit"] {
+            padding: 10px 20px;
+            font-size: 16px;
+            background: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background: #0056b3;
+        }
+        h3 {
+            margin-top: 30px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h2>Twitter Sentiment Analysis</h2>
+    <form method="POST">
+        <input type="text" name="tweet" placeholder="Enter a tweet" value="{{ tweet }}">
+        <input type="submit" value="Analyze">
+    </form>
+    {% if prediction %}
+        <h3>{{ prediction }}</h3>
+    {% endif %}
+</body>
+</html>
